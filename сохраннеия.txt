@@ -1,0 +1,13 @@
+<?php
+
+use App\Http\Controllers\FormController;
+use Illuminate\Support\Facades\Route;
+Route::get('/room', [FormController::class, 'showRoomForm']);
+Route::post('/room', [FormController::class, 'handleRoomForm']);
+Route::get('/conference', [FormController::class, 'showConferenceForm']);
+Route::post('/conference', [FormController::class, 'handleConferenceForm']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+?>
