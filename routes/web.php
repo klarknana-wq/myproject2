@@ -3,9 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\authController;
 
 Route::get('/register', [registerController::class, 'showRegistrationForm'])->name('registerForm');
 Route::post('/register',[RegisterController::class, 'register'])->name('register');
+Route::get('/login',[authController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::get('/', function () {
     return '
